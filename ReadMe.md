@@ -1,7 +1,10 @@
 ### Hi there 👋
 
 **I'm UWENAYO allain Pacifique**
-###⚠️⚠️ This is nothing important it's just a repo for storing my learning code ⚠️⚠️
+
+### ⚠️⚠️ This is nothing important it's just a repo for storing my learning code ⚠️⚠️
+
+It is not meant to be a production codebase and it contains highly disliked programming langs.
 
 I'm `@uwenayoallain` on all Social Media, feel free to just follow me
 and you can check out my work on [dribbble](https://dribbble.com/uwenayoallain)
@@ -13,7 +16,7 @@ My activites:
 - ⚡ Fun fact: I'm a developer,learner
 - ⚡ That's all for now
 
-### i like reading.
+### I like reading.
 
 <a href="https://app.daily.dev/uwenayoallain"><img src="https://github.com/uwenayoallain/uwenayoallain/blob/main/devcard.svg" width="400" alt="Yarison Allain's Dev Card"/></a>
 
