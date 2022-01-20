@@ -19,8 +19,6 @@
 -- TODO 8.Constraints
 -- TODO 9.Exiting
 */
-
-
 -- !learning triggers
 create table students(
   studentId int PRIMARY KEY AUTO_INCREMENT,
