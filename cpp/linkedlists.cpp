@@ -54,6 +54,31 @@ public:
 			newNode = newNode->next;
 		}
 	}
+	int findbyPosition(int position){
+		if(head == NULL){
+			cout<<"Empty List"<<endl;
+			return 0;
+		}
+		int size = 0;
+		Node *current =head;
+		while(current != NULL){
+			size++;
+			current=current->next;
+		}
+		if(size<position){
+			cout<<"out of bound"<<endl;
+			return -1;
+		}
+		size =0;
+		current = head;
+		while(current != NULL){
+			size++;
+			if(size == position){
+				return current->data;
+			}
+			current= current->next;
+		}
+	}
 	void insertAt(int data, int position)
 	{
 		Node *newNode = new Node(data);
@@ -101,4 +126,7 @@ int main()
 	list.insertAt(6, 2);
 	cout << "Linked list is: " << endl;
 	list.display();
+	int position = 2;
+	int value = list.findbyPosition(position);
+	cout<<value<<" found at "<<position<<endl;
 }
