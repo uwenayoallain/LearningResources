@@ -27,16 +27,15 @@ struct Queue
         rear++;
     }
 
-    int dequeue()
+    void dequeue()
     {
         if (front == rear)
-        {
-            cout << "Queue is empty" << endl;
-            return -1;
+            {
+                cout << "Queue is empty" << endl;
+                return;
         }
-        int data = queue[front];
         front++;
-        return data;
+        return;
     }
 
     void display()
