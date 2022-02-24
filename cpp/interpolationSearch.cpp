@@ -19,7 +19,7 @@ int interpolationSearch(int arr[], int n, int key)
         else if (arr[mid] > key)
         {
             high = mid - 1;
-        }
+        }6
         else
         {
             low = mid + 1;

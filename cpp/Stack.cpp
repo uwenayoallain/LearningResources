@@ -58,10 +58,6 @@ void Pop()
 
 int main()
 {
-	system("color f0");
-	system("title Stack");
-	system("mode con cols=50 lines=20");
-	system("cls");
 	int choice;
 	do
 	{
