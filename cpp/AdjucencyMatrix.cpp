@@ -53,13 +53,13 @@ public:
         }
         matrix[orgin][destination] = 0;
     }
-}
+};
 
-int main()
+int
+main()
 {
     AdjucencyMatrix matrix(5);
     matrix.addEdge(0, 1);
-    matrix.display();
     matrix.addEdge(0, 2);
     matrix.addEdge(1, 2);
     matrix.addEdge(2, 3);
