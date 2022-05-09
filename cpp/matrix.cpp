@@ -5,13 +5,13 @@ using namespace std;
 class AdjucencyMatrix
 {
 private:
-    int **matrix;
     int nodes;
+    int **matrix;
 
 public:
     AdjucencyMatrix(int nodes)
     {
-        this.nodes = nodes;
+        this->nodes = nodes;
         matrix = new int *[nodes];
         for (int i = 0; i < nodes; i++)
         {
@@ -29,6 +29,16 @@ public:
             }
             cout << endl;
         }
+    }
+
+    void addEdge(int orgin, int destination)
+    {
+        if (orgin < 0 || destination < 0 || orgin >= nodes || destination >= nodes)
+        {
+            cout << "Invalid Input" << endl;
+            return;
+        }
+        matrix[orgin][destination] = 1;
     }
 }
 
