@@ -19,27 +19,41 @@ Node *addNode(Node *parent, int key)
     return newNode;
 };
 
-Node *removeNode(Node *node)
+Node *genTree(vector<int> arr, int start, int end)
 {
-    Node *parent = node->parent;
-    for (int i = 0; i < parent->children.size(); i++)
+    if (start > end)
+        return NULL;
+    int mid = (start + end) / 2;
+    Node *root = addNode(NULL, arr[mid]);
+    root->children.push_back(genTree(arr, start, mid - 1));
+    root->children.push_back(genTree(arr, mid + 1, end));
+    return root;
+}
+
+BFSGenTree(Node *root)
+{
+    queue<Node *> q;
+    q.push(root);
+    while (!q.empty())
     {
-        if (parent->children[i] == node)
+        Node *temp = q.front();
+        q.pop();
+        cout << temp->key << " ";
+        for (int i = 0; i < temp->children.size(); i++)
         {
-            parent->children.erase(parent->children.begin() + i);
-            break;
+            q.push(temp->children[i]);
         }
     }
-    return parent;
-};
+}
 
-void printNodes(Node *node)
+void printTree(vector<Node *> arr, int start, int end)
 {
-    cout << node->key << " ";
-    for (int i = 0; i < node->children.size(); i++)
-    {
-        printNodes(node->children[i]);
-    }
+    if (start > end)
+        return;
+    int mid = (start + end) / 2;
+    cout << arr[mid]->key << " ";
+    printTree(arr, start, mid - 1);
+    printTree(arr, mid + 1, end);
 }
 
 int main()
@@ -50,8 +64,11 @@ int main()
     Node *node1 = addNode(root, 2);
     Node *node2 = addNode(root, 3);
     Node *node3 = addNode(root, 4);
-    printNodes(root);
+    Node *node4 = addNode(root, 10);
+    Node *node5 = addNode(root, 15);
+    Node *node6 = addNode(root, 7);
+    BFSGenTree(root);
+    // printTree(root->children, 0, root->children.size() - 1);
     cout << endl;
-    removeNode(node1);
-    printNodes(root);
+    return 0;
 }
