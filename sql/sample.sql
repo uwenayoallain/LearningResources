@@ -18,6 +18,10 @@ INSERT INTO Users (first_name, last_name, email, password) VALUES
     ('capitain', 'america','capitain@gmail.com', 'password'),
     ('jean', 'michel', 'jeanmichel@gmail.com', 'password');
 
+-- TIP 6:
+
+-- SELECT DISTINCT first_name FROM Users;
+
 -- TIP 7:
 
 SELECT * FROM USERS WHERE id = 1;

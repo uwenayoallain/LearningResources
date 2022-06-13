@@ -1,6 +1,6 @@
-#include <iostream>
-#include <vector>
 #include <bits/stdc++.h>
+#include <iostream>
+
 using namespace std;
 
 struct Node
@@ -15,60 +15,56 @@ Node *addNode(Node *parent, int key)
     Node *newNode = new Node();
     newNode->key = key;
     newNode->parent = parent;
-    parent->children.push_back(newNode);
+    if (parent != NULL)
+    {
+        parent->children.push_back(newNode);
+    }
     return newNode;
-};
-
-Node *genTree(vector<int> arr, int start, int end)
-{
-    if (start > end)
-        return NULL;
-    int mid = (start + end) / 2;
-    Node *root = addNode(NULL, arr[mid]);
-    root->children.push_back(genTree(arr, start, mid - 1));
-    root->children.push_back(genTree(arr, mid + 1, end));
-    return root;
 }
 
-BFSGenTree(Node *root)
+void BFSGenTree(Node *root)
 {
     queue<Node *> q;
     q.push(root);
     while (!q.empty())
     {
-        Node *temp = q.front();
-        q.pop();
-        cout << temp->key << " ";
-        for (int i = 0; i < temp->children.size(); i++)
+        int size = q.size();
+        while (size > 0)
         {
-            q.push(temp->children[i]);
+            Node *current = q.front();
+            cout << current->key << " ";
+            q.pop();
+            for (auto children : current->children)
+            {
+                q.push(children);
+            }
+            size--;
         }
+        cout <<endl;
     }
-}
-
-void printTree(vector<Node *> arr, int start, int end)
-{
-    if (start > end)
-        return;
-    int mid = (start + end) / 2;
-    cout << arr[mid]->key << " ";
-    printTree(arr, start, mid - 1);
-    printTree(arr, mid + 1, end);
 }
 
 int main()
 {
-    Node *root = new Node();
-    root->key = 1;
-    root->parent = NULL;
+    Node *root = addNode(NULL, 1);
+
     Node *node1 = addNode(root, 2);
     Node *node2 = addNode(root, 3);
-    Node *node3 = addNode(root, 4);
-    Node *node4 = addNode(root, 10);
-    Node *node5 = addNode(root, 15);
-    Node *node6 = addNode(root, 7);
+
+    Node *node3 = addNode(node1, 4);
+    Node *node4 = addNode(node1, 5);
+
+    Node *node5 = addNode(node2, 6);
+    Node *node6 = addNode(node2, 7);
+
+    Node *node7 = addNode(node3, 8);
+    Node *node8 = addNode(node3, 9);
+
+    Node *node9 = addNode(node4, 10);
+    Node *node10 = addNode(node4, 11);
+
+    Node *node11 = addNode(node5, 13);
+    Node *node12 = addNode(node6, 14);
     BFSGenTree(root);
-    // printTree(root->children, 0, root->children.size() - 1);
-    cout << endl;
     return 0;
 }
